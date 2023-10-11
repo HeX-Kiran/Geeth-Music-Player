@@ -4,13 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geeth Music</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/queries.css">
     <script defer src="javascript/script.js"></script>
 </head>
 <body>
-    Hey there
+    <section class="geeth">
+        <div class="geeth-container">
+            <div class="main-side-bar">
+                <!-- brand name -->
+                <header class="brand-name">G<i>EE</i>TH</header>
+                <!-- Library category -->
+                <div class="library">
+                    <header class="other-heading">YOUR LIBRARY</header>
+                    <div class="categorys">
+                        <div class="category">
+                            <ion-icon name="timer-outline"></ion-icon>
+                            <p class="teritory-heading">RECENTLY PLAYED</p>
+                        </div>
+                        <div class="category">
+                            <ion-icon name="heart-outline"></ion-icon>
+                            <p class="teritory-heading">FAVORITE SONG</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="playlists library">
+                    <header class="other-heading">PLAYLIST</header>
+                    <div class="playlist-category categorys">
+                            
+                            <div class="category">
+                                <ion-icon name="musical-notes-outline"></ion-icon>
+                                <p class="teritory-heading">HINDI TOP 100 SONGS</p>
+                            </div>
+                            <div class="category">
+                                <ion-icon name="musical-notes-outline"></ion-icon>
+                                <p class="teritory-heading">INDIPOP 50</p>
+                            </div>
+                            <div class="category">
+                                <ion-icon name="musical-notes-outline"></ion-icon>
+                                <p class="teritory-heading">ROMANCE SEASON</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                <!-- Add song button -->
+                <div class="add-song">
+                    <p class="add-song-btn"><ion-icon name="add-circle-outline" class="secondary-heading icon"></ion-icon> <span  class="secondary-heading">ADD SONG</span></p>
+                </div>
+            </div>
+            <div class="main-content">
+                <!-- NAV BAR -->
+                <nav class="main-nav">
+                    <input type="text" placeholder="Search for song...">
+                    <img src="assets/artist-img.webp" alt="user-image">
+                </nav>
 
+                <!-- Music Card -->
+                <div class="music-card">
+                    <div class="card">
+                        <img src="assets/soundTrack.webp" alt="sound track">
+                        <p class="song-name-heading primary-heading">Zinda Banda</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="player">
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- 
     <button>Play music</button>
     <h1>Timer :- <span class="min">00</span> : <span class="sec">00</span></h1>
 
@@ -19,6 +97,10 @@
     <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
 
     <button class="next">next</button>
-    <button class="prev">prev</button>
+    <button class="prev">prev</button> -->
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </body>
 </html>

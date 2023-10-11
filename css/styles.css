@@ -1,0 +1,106 @@
+@import url(general.css);
+
+.geeth-container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+
+.main-side-bar{
+    height: 90vh;
+    background-color: #EDEDED;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+    
+    
+}
+
+.brand-name{
+    font-family: 'Kanit', sans-serif;
+    font-size: 4rem;
+    font-weight: 400;
+    /* letter-spacing: 5px; */
+    color: purple;
+    
+}
+
+.categorys{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 30px;
+}
+
+.category{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 30px;
+    text-transform: uppercase;
+    color: #444;
+    cursor: pointer;
+}
+
+ion-icon{
+    font-size: 1.6rem;
+}
+
+.add-song-btn{
+    cursor: pointer;
+    padding: 1.2rem 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border:  2px solid purple;
+    border-radius: 10px;
+    
+}
+
+.icon{
+    color: purple;
+}
+
+
+/* Main Content */
+.main-content{
+    background-color: #ffffff;
+    padding: 2rem;
+    overflow-x: hidden;
+   
+}
+
+.main-nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-nav input{
+    width: 60vw;
+    padding: 1.2rem 2.4rem;
+    border: 1px solid #44444413;
+    border-radius: 20px;
+    
+}
+
+.main-nav img{
+    width: 40px;
+}
+
+
+
+.player{
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.057);
+}
+
+.card{
+    padding: 5rem;
+}

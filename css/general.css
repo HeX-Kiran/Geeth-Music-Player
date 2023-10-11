@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.primary-heading{
+    font-size: 3.2rem;
+}
+
+.secondary-heading{
+    font-size: 2.4rem;
+}
+
+.teritory-heading{
+    font-size: 1.6rem;
+}
+
+.other-heading{
+    font-size: 1.4rem;
+}
+
+.grid{
+    display: grid;
+    gap: 2rem;
+}
+
+.grid--col-2{
+    grid-template-columns: repeat(2,1fr);
+}
+.grid--col-3{
+    grid-template-columns: repeat(3,1fr);
+}
+.grid--col-4{
+    grid-template-columns: repeat(4,1fr);
+}
