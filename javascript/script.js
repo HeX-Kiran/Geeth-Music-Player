@@ -1,14 +1,14 @@
-// import {Howl, Howler} from 'node_modules/howler';
+//import {Howl, Howler} from 'node_modules/howler';
 
 let songs = {
      song1 : new Howl({
         
-        src: ["assets/Heeriye-Heeriye-Aa(PaglaSongs).mp3"],
+        src: ["assets/songs/Heeriye-Heeriye-Aa(PaglaSongs).mp3"],
         
       }),
 
       song2: new Howl({
-        src : ["assets/Zinda-Banda(PaglaSongs).mp3"],
+        src : ["assets/songs/Zinda-Banda(PaglaSongs).mp3"],
         name:"kiran",
       })
 
@@ -220,6 +220,39 @@ function prevSong(){
   currTrack = songArr[index];
   currSeek = 0;
   playMusic(currTrack);
+}
+
+
+
+// card-1 animation
+
+card1 = document.querySelector(".card-1");
+newCard = document.querySelector(".new-card");
+
+card1.addEventListener("animationend",()=>{
+  card1.remove();
+})
+
+card1.addEventListener("click",()=>{
+  card1.classList.add("next-song")
+  newCard.classList.add("new-card-next-song")
+})
+
+
+function createCard(){
+  let div = document.createElement("div");
+  div.classList.add("card new-card");
+  div.innerHTML = `<div class="card-content">
+              <img src="assets/images/track-1.png" alt="sound track" class="">
+              <p class="song-name-heading primary-heading">${songName}</p>
+              <div class="album">
+                  <p class="secondary-heading">#${id}</p>
+                  <p class="secondary-heading">${songName}</p>
+              </div>
+              <div class="timer secondary-heading">
+                  <span class="min">${minCount}</span> : <span class="sec">${secCount}</span>
+              </div>
+            </div>`
 }
 
 

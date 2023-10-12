@@ -8,8 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/queries.css">
     <script defer src="javascript/script.js"></script>
@@ -61,16 +64,62 @@
             <div class="main-content">
                 <!-- NAV BAR -->
                 <nav class="main-nav">
-                    <input type="text" placeholder="Search for song...">
-                    <img src="assets/artist-img.webp" alt="user-image">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search for song...">
+                        <ion-icon name="search-outline" class="search-icon"></ion-icon>
+                    </div>
+                    <img src="assets/images/artist-img.webp" alt="user-image">
                 </nav>
 
                 <!-- Music Card -->
                 <div class="music-card">
-                    <div class="card">
-                        <img src="assets/soundTrack.webp" alt="sound track">
-                        <p class="song-name-heading primary-heading">Zinda Banda</p>
-                        
+                    <div class="card card-1">
+                        <div class="card-content">
+                            <img src="assets/images/track-1.png" alt="sound track" class="">
+                            <p class="song-name-heading primary-heading">Zinda Banda</p>
+                            <div class="album">
+                                <p class="secondary-heading">#1</p>
+                                <p class="secondary-heading">Zinda Banda</p>
+                            </div>
+                            <div class="timer secondary-heading">
+                                <span class="min">00</span> : <span class="sec">11</span>
+                            </div>
+
+                            <!-- Add next and prev Button -->
+                        </div>
+                    </div>
+
+                    <div class="card new-card">
+                        <div class="card-content">
+                            <img src="assets/images/track-1.png" alt="sound track" class="">
+                            <p class="song-name-heading primary-heading">Naaku Mukku</p>
+                            <div class="album">
+                                <p class="secondary-heading">#2</p>
+                                <p class="secondary-heading">Naaku Mukku</p>
+                            </div>
+                            <div class="timer secondary-heading">
+                                <span class="min">00</span> : <span class="sec">11</span>
+                            </div>
+
+                            <!-- Add next and prev Button -->
+                        </div>
+                    </div>
+
+                    <div class="card card-2">
+                        <div class="card-content">
+                           
+                            <img src="assets/images/track-1.png" alt="sound track">
+                            <!-- <p class="song-name-heading primary-heading">Loading Next Song</p> -->
+                            
+                            
+                        </div>
+                    </div>
+
+                    <div class="card card-3">
+                        <div class="card-content">
+                            <img src="assets/images/track-1.png" alt="sound track">
+                            <!-- <p class="song-name-heading primary-heading">Loading Next Song</p> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,16 +137,18 @@
 
 
 
-    <!-- 
+    
     <button>Play music</button>
     <h1>Timer :- <span class="min">00</span> : <span class="sec">00</span></h1>
 
 
     <input type="range" min="1" max="99" value="0" class="seek_slider">
-    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
+   
 
     <button class="next">next</button>
-    <button class="prev">prev</button> -->
+    <button class="prev">prev</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
