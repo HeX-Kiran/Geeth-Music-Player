@@ -20,9 +20,13 @@
 <body>
     <section class="geeth">
         <div class="geeth-container">
-            <div class="main-side-bar">
+            <div class="main-side-bar ">
                 <!-- brand name -->
-                <header class="brand-name">G<i>EE</i>TH</header>
+                <div class="brand-header">
+                    <header class="brand-name">G<i>EE</i>TH</header>
+                    <ion-icon name="arrow-back-outline" class="icon"></ion-icon>
+                </div>
+                
                 <!-- Library category -->
                 <div class="library">
                     <header class="other-heading">YOUR LIBRARY</header>
@@ -57,13 +61,16 @@
                     </div>
                 </div>
                 <!-- Add song button -->
-                <div class="add-song">
+                
+                <label class="add-song" for="add-songs">
                     <p class="add-song-btn"><ion-icon name="add-circle-outline" class="secondary-heading icon"></ion-icon> <span  class="secondary-heading">ADD SONG</span></p>
-                </div>
+                </label>
+                <input type="file" id="add-songs">
             </div>
             <div class="main-content">
                 <!-- NAV BAR -->
                 <nav class="main-nav">
+                    <ion-icon name="menu-outline" class="side-bar-menu"></ion-icon>
                     <div class="search-bar">
                         <input type="text" placeholder="Search for song...">
                         <ion-icon name="search-outline" class="search-icon"></ion-icon>
@@ -76,34 +83,21 @@
                     <div class="card card-1">
                         <div class="card-content">
                             <img src="assets/images/track-1.png" alt="sound track" class="">
-                            <p class="song-name-heading primary-heading">Zinda Banda</p>
+                            <p class="song-name-heading primary-heading track-name">Zinda Banda</p>
                             <div class="album">
-                                <p class="secondary-heading">#1</p>
-                                <p class="secondary-heading">Zinda Banda</p>
+                                <p class="secondary-heading index">#1</p>
+                                <p class="secondary-heading track-name">Zinda Banda</p>
                             </div>
                             <div class="timer secondary-heading">
-                                <span class="min">00</span> : <span class="sec">11</span>
+                                <span class="min">00</span> : <span class="sec">00</span>
                             </div>
 
-                            <!-- Add next and prev Button -->
+                            <!-- Add next and prev Button
+                            <ion-icon name="arrow-forward-outline" class="next-prev-btn next-btn"></ion-icon>
+                            <ion-icon name="arrow-back-outline" class="next-prev-btn prev-btn"></ion-icon> -->
                         </div>
                     </div>
 
-                    <div class="card new-card">
-                        <div class="card-content">
-                            <img src="assets/images/track-1.png" alt="sound track" class="">
-                            <p class="song-name-heading primary-heading">Naaku Mukku</p>
-                            <div class="album">
-                                <p class="secondary-heading">#2</p>
-                                <p class="secondary-heading">Naaku Mukku</p>
-                            </div>
-                            <div class="timer secondary-heading">
-                                <span class="min">00</span> : <span class="sec">11</span>
-                            </div>
-
-                            <!-- Add next and prev Button -->
-                        </div>
-                    </div>
 
                     <div class="card card-2">
                         <div class="card-content">
@@ -122,10 +116,102 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Popular Artist -->
+                <div class="popular-artist">
+                    <div class="artist-heading">
+                        <p class="secondary-heading">Popular Artist</p>
+                        <p class="other-heading">this week</p>
+                    </div>
+                    <div class="artist-card">
+                        <!-- Artist-1 -->
+                        <div class="artist">
+                            <!-- Artist-img -->
+                            <img src="assets/images/arjith.jpg" alt="arjith singh">
+                            <!-- Artist name -->
+                            <p class="other-heading">Arjith Singh</p>
+                            
+                        </div>
+
+                         <!-- Artist-7 -->
+                         <div class="artist popular">
+                            <div class="artist-pop">
+                                <!-- Artist-img -->
+                                <img src="assets/images/modi.webp" alt="arjith singh">
+                                <!-- Artist name -->
+                                <p class="other-heading">Narendra Modi</p>
+                            </div>
+                            
+                        </div>
+
+                        <!-- Artist-2 -->
+                        <div class="artist">
+                            <!-- Artist-img -->
+                            <img src="assets/images/hariharan.jpg" alt="arjith singh">
+                            <!-- Artist name -->
+                            <p class="other-heading">Hariharan</p>
+                            
+                        </div>
+
+                        <!-- Artist-3 -->
+                        <div class="artist">
+                            <!-- Artist-img -->
+                            <img src="assets/images/sherya.jpeg" alt="arjith singh">
+                            <!-- Artist name -->
+                            <p class="other-heading">Sherya Goshal</p>
+                            
+                        </div>
+
+                        <!-- Artist-4 -->
+                        <div class="artist">
+                            <!-- Artist-img -->
+                            <img src="assets/images/ani1.jpg" alt="arjith singh">
+                            <!-- Artist name -->
+                            <p class="other-heading">Anirudh Ravichandran</p>
+                            
+                        </div>
+
+                        <!-- Artist-6 -->
+                        <div class="artist">
+                            <!-- Artist-img -->
+                            <img src="assets/images/shaan.jpg" alt="arjith singh">
+                            <!-- Artist name -->
+                            <p class="other-heading">Shaan</p>
+                            
+                        </div>
+
+                       
+                    </div>
+                    
+                </div>
             </div>
 
             <div class="player">
+                <!-- Song name and producer -->
+                <div class="song-details">
+                    <p class="name">Zinda Banda</p>
+                   
+                </div>
 
+                <!-- Play,pause,next,prev button -->
+                <div class="main-btns">
+                    <ion-icon name="chevron-back-outline" class="song-nav prev"></ion-icon>
+                    <ion-icon name="play-outline" class="song-nav play"></ion-icon>
+                    <ion-icon name="pause-outline" class="song-nav pause"></ion-icon>
+                    <ion-icon name="chevron-forward-outline" class="song-nav next"></ion-icon>
+                </div>
+
+                <!-- Song  timeline and timer -->
+                <div class="timeline">
+                    <p class="other-heading"> <span class="min">00</span> : <span class="sec">00</span></p>
+                    <input type="range" min="1" max="99" value="0" class="seek_slider">
+                </div>
+
+                <!-- Loop Song Btn and cateogry -->
+                <div class="loop">
+                    <ion-icon name="infinite-outline" class="song-option"></ion-icon>
+                    <ion-icon name="options-outline" class="song-option"></ion-icon>
+                </div>
             </div>
         </div>
     </section>
@@ -138,7 +224,7 @@
 
 
     
-    <button>Play music</button>
+    <!-- <button>Play music</button>
     <h1>Timer :- <span class="min">00</span> : <span class="sec">00</span></h1>
 
 
@@ -146,7 +232,7 @@
    
 
     <button class="next">next</button>
-    <button class="prev">prev</button>
+    <button class="prev">prev</button> -->
 
     <script src="https://cdn.jsdelivr.net/npm/howler@2.2.4/dist/howler.min.js"></script>
 

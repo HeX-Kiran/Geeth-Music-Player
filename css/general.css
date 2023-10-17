@@ -9,7 +9,7 @@ html{
 }
 
 body{
-    overflow: hidden;
+    
     font-family: 'Poppins', sans-serif;
 }
 
@@ -19,6 +19,7 @@ body{
 
 .secondary-heading{
     font-size: 2.4rem;
+    
 }
 
 .teritory-heading{
