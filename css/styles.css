@@ -201,7 +201,7 @@ input[type = "file"]{
     flex-direction: column;
     gap:5px;
     bottom: 0px;
-    left: 20px;
+    left: 10px;
 }
 
 .card-content img{
