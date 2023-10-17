@@ -187,7 +187,7 @@
     .player {
 
         grid-template-columns: 1fr 4fr;
-        padding: 1rem 1rem;
+        padding: 3rem 1rem;
     }
 
     .song-nav {
