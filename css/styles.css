@@ -62,7 +62,8 @@ ion-icon{
 }
 
 input[type = "file"]{
-    display: none;
+    /* display: none; */
+    visibility: hidden;
 }
 
 .add-song-btn{
@@ -230,13 +231,13 @@ input[type = "file"]{
 
   /* Add this class to play next Song */
   .next-song{
-    animation: nextSong 2s linear 1;
+    animation: nextSong 1s linear 1;
     
   }
 
   /* Add this class to new card in next song button */
   .new-card-next-song{
-    animation: newCard-nextSong 2s linear 1;
+    animation: newCard-nextSong 1s linear 1;
   }
 
 /* Rotate Animation */

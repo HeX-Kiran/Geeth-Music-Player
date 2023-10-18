@@ -37,7 +37,8 @@ let sliderName = document.querySelector(".name")
 
 
 
-let btn = document.querySelector(".play");
+let playBtn = document.querySelector(".play");
+let pauseBtn = document.querySelector(".pause")
 let minArr = document.querySelectorAll(".min");
 let secArr = document.querySelectorAll(".sec");
 let min = minArr[0];
@@ -57,6 +58,8 @@ let currSeek = 0;
 let currTrack = songArr[0];
 let duration;
 
+let inputTag = document.querySelector("#add-songs");
+
 let timer;
 
 // Default music card details
@@ -68,24 +71,100 @@ trackIndex.textContent = "#" + (currTrack.id + 1);
 
 
 
-
+// ************************************************************************************************
 // Button event lisnter to PAUSE/RESUME song
-btn.addEventListener("click", () => {
+playBtn.addEventListener("click", () => {
+  playBtn.style.display = "none";
+  pauseBtn.style.display = "block"
   currTrack.track.playing()
     ? currTrack.track.pause()
     : playMusic(currTrack, currSeek);
 });
 
-//event to move to next song
-next.addEventListener("click", () => {
-  nextSong();
+// ************************************************************************************************
+
+// Button event lisnter to PAUSE/RESUME song
+pauseBtn.addEventListener("click", () => {
+  playBtn.style.display = "block";
+  pauseBtn.style.display = "none"
+  currTrack.track.playing()
+    ? currTrack.track.pause()
+    : playMusic(currTrack, currSeek);
 });
 
+// ************************************************************************************************
+
+// Animation end listener
+
+let card1 = document.querySelector(".music-card").children[0];
+let isNextFlag = false;
+
+
+  document.querySelector(".music-card").addEventListener("animationend", (e) => {
+    if(e.target.classList.contains("next-song")){
+         // Remove the card after animation
+      card1.remove();
+      console.log("card1 removed");
+
+      //Now card1 has the new card
+      let newCard = createCard();
+      // Add the new card animation
+      newCard.classList.add("new-card-next-song");
+      // Add the new card into dom
+      document.querySelector(".music-card").prepend(newCard); 
+      // Play the song and check with song either next or prev using flag
+      isNextFlag ? nextSong() : prevSong()
+    }
+   
+});
+// ************************************************************************************************
+
+//event to move to next song
+next.addEventListener("click", () => {
+
+  // Set the flag
+  isNextFlag = true;
+
+  // Stop the current track
+  currTrack.track.stop();
+
+  // NextSong should be played only after the animation ends
+    // Select the first card in music-card list ie card-1
+    card1 = document.querySelector(".music-card").children[0];
+  
+    // If the card contains "new-card-next-song" class delete it
+    if(card1.classList.contains("new-card-next-song")){
+      card1.classList.remove("new-card-next-song");
+    }
+    
+    // Add the animation class
+    card1.classList.add("next-song");
+
+  
+});
+
+// ************************************************************************************************
 //event to move to prev song
 
 prev.addEventListener("click", () => {
-  prevSong();
+    // Set nextFlag as false
+    isNextFlag = false;
+
+    // Stop the current track
+  currTrack.track.stop();
+
+  card1 = document.querySelector(".music-card").children[0];
+  
+    // If the card contains "new-card-next-song" class delete it
+    if(card1.classList.contains("new-card-next-song")){
+      card1.classList.remove("new-card-next-song");
+    }
+    
+    // Add the animation class
+    card1.classList.add("next-song");
 });
+
+// ************************************************************************************************
 
 function playMusic(music) {
   //Load Song
@@ -140,6 +219,7 @@ function playMusic(music) {
   console.log(music.name);
 }
 
+// ************************************************************************************************
 // __________________________________Common Functions________________
 // Slider event listner
 slider.addEventListener("change", () => {
@@ -152,11 +232,15 @@ slider.addEventListener("change", () => {
   playMusic(currTrack, currSeek);
 });
 
+// ************************************************************************************************
+
 // Function to load the songs
 function loadSong() {
   currTrack.track.load();
   duration = currTrack.track.duration();
 }
+
+// ************************************************************************************************
 
 // Main timer to update the time and slider
 function updateTimer() {
@@ -208,10 +292,11 @@ function updateTimer() {
   currSeek = currTrack.track.seek();
 }
 
+// ************************************************************************************************
+
 // Function to play next song
 function nextSong() {
-  // Stop the current track
-  currTrack.track.stop();
+  
 
   // Remove Animation
   rotateCard.classList.remove("rotate-image");
@@ -224,13 +309,23 @@ function nextSong() {
   console.log("newIndex" + index);
   currTrack = songArr[index];
   currSeek = 0;
+
+  // update min and sec with new card min and sec
+  min = document.querySelector(".min")
+  sec = document.querySelector(".sec")
+
+  // Select the next card name and index tag
+  trackName = document.querySelectorAll(".track-name");
+  trackIndex = document.querySelector(".index");
+
   playMusic(currTrack);
 }
 
+// ************************************************************************************************
+
 // Function to play prev song
 function prevSong() {
-  // Stop the current Track
-  currTrack.track.stop();
+  
   // Stop Animation
   rotateCard.classList.remove("rotate-image");
 
@@ -249,43 +344,30 @@ function prevSong() {
 }
 
 
+// ************************************************************************************************
 
-
-// card-1 animation
-
-let card1 = document.querySelector(".card-1");
-let newCard;
-
-card1.addEventListener("animationend", () => {
-  card1.remove();
-});
-
-card1.addEventListener("click", () => {
-  card1.classList.add("next-song");
-  newCard = createCard();
-
-  newCard.classList.add("new-card-next-song");
-});
+// Function to create card
 
 function createCard() {
   let div = document.createElement("div");
   div.classList.add("card");
+  div.classList.add("card-1");
   div.innerHTML = `<div class="card-content">
-              <img src="assets/images/track-1.png" alt="sound track" class="">
-              <p class="song-name-heading primary-heading">${currTrack.name}</p>
-              <div class="album">
-                  <p class="secondary-heading">#${currTrack.id}</p>
-                  <p class="secondary-heading">${currTrack.name}</p>
-              </div>
-              <div class="timer secondary-heading">
-                  <span class="min">${minCount}</span> : <span class="sec">${secCount}</span>
-              </div>
-            </div>`;
+                      <img src="assets/images/track-1.png" alt="sound track" class="">
+                      <p class="song-name-heading primary-heading track-name">Zinda Banda</p>
+                      <div class="album">
+                          <p class="secondary-heading index">#1</p>
+                          <p class="secondary-heading track-name">Zinda Banda</p>
+                      </div>
+                      <div class="timer secondary-heading">
+                          <span class="min">00</span> : <span class="sec">00</span>
+                      </div>
+                    </div>`;
             
   return div;
 }
 
-
+// ************************************************************************************************
 // Side bar menu icon functionality
 let menuBtn = document.querySelector(".side-bar-menu");
 let menuCloseBtn = document.querySelector(".brand-header .icon");
@@ -296,4 +378,12 @@ menuBtn.addEventListener("click",()=>{
 
 menuCloseBtn.addEventListener("click",()=>{
   document.querySelector(".main-side-bar").classList.remove("target")
+})
+
+// ************************************************************************************************
+
+// Add event to file input tag
+inputTag.addEventListener("change",(e)=>{
+  console.log("entered");
+  console.log(e.target.files);
 })

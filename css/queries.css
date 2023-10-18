@@ -64,6 +64,30 @@
     .card-3{
         width: 80vw;
     }
+
+    @keyframes newCard-nextSong {
+        0%{
+            
+            width: 70vw;
+            opacity: 20%;
+        }
+        25%{
+            
+            width: 67vw;
+            opacity: 50%;
+        }
+        50%{
+            
+            width: 64vw;
+            opacity: 75%;
+        }
+        100%{
+            
+            width: 60vw;
+            opacity: 100%;
+        }
+        
+    }
     
 }
 
@@ -135,6 +159,30 @@
     .card-3{
         width: 90vw;
     }
+
+    @keyframes newCard-nextSong {
+        0%{
+            
+            width: 80vw;
+            opacity: 20%;
+        }
+        25%{
+            
+            width: 77vw;
+            opacity: 50%;
+        }
+        50%{
+            
+            width: 74vw;
+            opacity: 75%;
+        }
+        100%{
+            
+            width: 70vw;
+            opacity: 100%;
+        }
+        
+    }
     
 }
 
@@ -156,6 +204,12 @@
  @media(max-width : 25em){
     .card{
         padding: 2rem 1rem
+    }
+
+    .card-content img {
+        
+        left: 45%;
+        
     }
 
 
@@ -182,6 +236,30 @@
 
     .card-3{
         width: 95vw;
+    }
+
+    @keyframes newCard-nextSong {
+        0%{
+            
+            width: 85vw;
+            opacity: 20%;
+        }
+        25%{
+            
+            width: 82vw;
+            opacity: 50%;
+        }
+        50%{
+            
+            width: 79vw;
+            opacity: 75%;
+        }
+        100%{
+            
+            width: 75vw;
+            opacity: 100%;
+        }
+        
     }
 
     .player {
