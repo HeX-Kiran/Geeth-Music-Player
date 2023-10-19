@@ -1,29 +1,8 @@
-//import {Howl, Howler} from 'node_modules/howler';
+console.log(songArr);
 
-let songs = {
-  song1: new Howl({
-    src: ["assets/songs/Heeriye-Heeriye-Aa(PaglaSongs).mp3"],
-  }),
 
-  song2: new Howl({
-    src: ["assets/songs/Zinda-Banda(PaglaSongs).mp3"],
-    name: "kiran",
-  }),
-};
 
-let songArr = [
-  {
-    id: 0,
-    track: songs.song2,
-    name: "Zinda Banda",
-  },
-  {
-    id: 1,
-    track: songs.song1,
-    name: "Heeriye",
-  },
-  
-];
+
 
 
 // Set card to rotate card during song play
@@ -381,9 +360,40 @@ menuCloseBtn.addEventListener("click",()=>{
 })
 
 // ************************************************************************************************
-
+let input = document.querySelector("#add-songs");
 // Add event to file input tag
-inputTag.addEventListener("change",(e)=>{
-  console.log("entered");
-  console.log(e.target.files);
-})
+input.onchange = event => {
+  const fileReader = new FileReader();
+  fileReader.addEventListener("load", e => {
+    if (e && e.target && e.target.result && files !== null) {
+      const arrayBuffer = e.target.result;
+      console.log(arrayBuffer);
+      // const base64Str = Buffer.from(arrayBuffer).toString("base64");
+      // const base64Str = btoa(arrayBuffer);
+      var base64Str = btoa(
+        new Uint8Array(arrayBuffer)
+          .reduce((data, byte) => data + String.fromCharCode(byte), '')
+      );
+      
+      
+      const contentType = "audio/mp3";
+      const sound = new Howl({
+        src: [`data:${contentType};base64,${base64Str}`]
+      });
+      
+      saveSong({id:songArr[songArr.length-1].id+1,name:`song:-${songArr[songArr.length-1].id+1}`,file:base64Str});
+      getSong();
+      songArr.push({id:songArr[songArr.length-1].id+1,name:"name 1",sound})
+      
+    }
+  });
+  const files = event.target.files;
+  fileReader.readAsArrayBuffer(files[0]);
+
+  
+
+  // ************************************************************************************************
+  // **********************************************DB OPERATIONS**************************************************
+};
+
+
