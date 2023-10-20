@@ -21,6 +21,7 @@
 <body>
     <section class="geeth">
         <div class="geeth-container">
+            <!-- Main Side Bar left -->
             <div class="main-side-bar ">
                 <!-- brand name -->
                 <div class="brand-header">
@@ -68,6 +69,8 @@
                 </label>
                 <input type="file" accept="audio/mp3,audio/*;capture=microphone" id="add-songs">
             </div>
+
+            <!-- MAIN CONTENT CENTER -->
             <div class="main-content">
                 <!-- NAV BAR -->
                 <nav class="main-nav">
@@ -83,7 +86,7 @@
                 <div class="music-card">
                     <div class="card card-1">
                         <div class="card-content">
-                            <img src="assets/images/track-1.png" alt="sound track" class="">
+                            <img src="assets/images/track-1.webp" alt="sound track" class="">
                             <p class="song-name-heading primary-heading track-name">Zinda Banda</p>
                             <div class="album">
                                 <p class="secondary-heading index">#1</p>
@@ -103,7 +106,7 @@
                     <div class="card card-2">
                         <div class="card-content">
                            
-                            <img src="assets/images/track-1.png" alt="sound track">
+                            <img src="assets/images/track-1.webp" alt="sound track">
                             <!-- <p class="song-name-heading primary-heading">Loading Next Song</p> -->
                             
                             
@@ -112,7 +115,7 @@
 
                     <div class="card card-3">
                         <div class="card-content">
-                            <img src="assets/images/track-1.png" alt="sound track">
+                            <img src="assets/images/track-1.webp" alt="sound track">
                             <!-- <p class="song-name-heading primary-heading">Loading Next Song</p> -->
                         </div>
                     </div>
@@ -128,7 +131,7 @@
                         <!-- Artist-1 -->
                         <div class="artist">
                             <!-- Artist-img -->
-                            <img src="assets/images/arjith.jpg" alt="arjith singh">
+                            <img src="assets/images/arjith.webp" alt="arjith singh">
                             <!-- Artist name -->
                             <p class="other-heading">Arjith Singh</p>
                             
@@ -148,7 +151,7 @@
                         <!-- Artist-2 -->
                         <div class="artist">
                             <!-- Artist-img -->
-                            <img src="assets/images/hariharan.jpg" alt="arjith singh">
+                            <img src="assets/images/hariharan.webp" alt="arjith singh">
                             <!-- Artist name -->
                             <p class="other-heading">Hariharan</p>
                             
@@ -157,7 +160,7 @@
                         <!-- Artist-3 -->
                         <div class="artist">
                             <!-- Artist-img -->
-                            <img src="assets/images/sherya.jpeg" alt="arjith singh">
+                            <img src="assets/images/sherya.webp" alt="arjith singh">
                             <!-- Artist name -->
                             <p class="other-heading">Sherya Goshal</p>
                             
@@ -166,7 +169,7 @@
                         <!-- Artist-4 -->
                         <div class="artist">
                             <!-- Artist-img -->
-                            <img src="assets/images/ani1.jpg" alt="arjith singh">
+                            <img src="assets/images/ani1.webp" alt="arjith singh">
                             <!-- Artist name -->
                             <p class="other-heading">Anirudh Ravichandran</p>
                             
@@ -175,7 +178,7 @@
                         <!-- Artist-6 -->
                         <div class="artist">
                             <!-- Artist-img -->
-                            <img src="assets/images/shaan.jpg" alt="arjith singh">
+                            <img src="assets/images/shaan.webp" alt="arjith singh">
                             <!-- Artist name -->
                             <p class="other-heading">Shaan</p>
                             
@@ -187,6 +190,7 @@
                 </div>
             </div>
 
+            <!-- MUSIC PLAYER  -->
             <div class="player">
                 <!-- Song name and producer -->
                 <div class="song-details">
@@ -213,6 +217,32 @@
                     <ion-icon name="infinite-outline" class="song-option"></ion-icon>
                     <ion-icon name="options-outline" class="song-option"></ion-icon>
                 </div>
+            </div>
+
+            <!-- ADD SONG MODAL -->
+            <div class="task-form">
+                <div class="form">
+                    <div class="form-title">
+                        <h1 class="secondary-heading">Add Song</h1>
+                        <ion-icon name="close-outline" class="form-close"></ion-icon>
+                    </div>
+                    <p class="song-selected teritory-heading">Song Selected :- Zinda Banda</p>
+                    <input type="text" placeholder="Song Name" class="add-song-name">
+                    
+                    <button class="save">Save</button>
+                </div>
+            </div>
+
+            <!-- Add song successfull message -->
+            <div class="success-msg">
+                <p>Song successfully added to geeth!</p>
+            </div>
+
+            <!-- Eror Add song  message -->
+            <div class="error-msg">
+                <p>Error! 
+                    ADD ONLY MP3 FILES
+                </p>
             </div>
         </div>
     </section>

@@ -92,9 +92,14 @@ function saveSong(songDetails){
   
   addReq.onsuccess = (e)=>{
     console.log("new entry added for the object",songDetails);
+    // Show success image
+    setTimeout(closeSuccessMsg,3000);
+    showSuccessMsg();
   }
   addReq.onerror = ()=>{
     console.log("Error while adding entry");
+    setTimeout(closeErrorMsg,3000);
+    showErrorMsg();
   }
   
  

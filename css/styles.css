@@ -152,6 +152,7 @@ input[type = "file"]{
 .card-1{
     z-index: 4;
     background-image: linear-gradient(#de77b5,#e349a59d);
+    
     width: 50vw;
     
     perspective: 1000px;
@@ -159,13 +160,14 @@ input[type = "file"]{
     
 }
 
-.new-card{
+/* .new-card{
     z-index: 3;
     background-image: linear-gradient(#b6f73d,#FF6969);
     width: 60vw;
     perspective: 1000px;
     transform-style: preserve-3d;
-}
+} */
+
 .card-2{
     z-index: 2;
     background-image: linear-gradient(#f73d3d,#FF6969);
@@ -504,6 +506,148 @@ input[type="range"]::-webkit-slider-thumb{
 .song-option{
     
     font-size: 2rem;
+}
+
+
+
+/* Task Form */
+.task-form{
+    height:100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.615);
+    display: none;
+    z-index: 100;
+    
+}
+
+.form{
+    min-width: 400px;
+    
+    min-height: 300px;
+    background-color: rgb(230, 230, 250);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    border-radius: 10px;
+    padding-bottom: 5rem;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+}
+
+.form-title{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+
+.form-close{
+    font-size: 3.6rem;
+    justify-self: end;
+    cursor: pointer;
+}
+
+.form-title h1{
+    
+    grid-column: span 2;
+    justify-self: end;
+    transform: translateX(-20%);
+}
+
+.form input{
+    font-family: inherit;
+    font-size: 1.8rem;
+    width: 80%;
+    padding: 1.2rem 2rem;
+    border: 1px solid #000;
+    outline: none;
+    border-radius: 10px;
+    background-color: rgb(248, 248, 248);
+    color: var(--main-text-color);
+}
+
+.form p{
+    font-weight: 500;
+}
+
+textarea{
+    background-color: #1F1D24;
+    color: var(--main-text-color);
+    font-family: inherit;
+    border-radius: 10px;
+    width: 80%;
+    height: 50%;
+    padding: 1.2rem 2rem;
+    border: none;
+    outline: none;
+    font-size: 1.8rem;
+    resize: none;
+}
+
+.save,.save:focus{
+    width: 80%;
+    padding: 1.2rem;
+    background-color: #2f9e44;
+    color: var(--main-text-color);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.save:hover{
+    background-color: #37b24d;
+    cursor: pointer;
+}
+
+
+/* Song Successfull message */
+
+.success-msg{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-25%);
+    display: none;
+    
+}
+
+.success-msg p{
+    padding: 12px 24px;
+    background-color: green;
+    color: white;
+    border-radius:20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Song Error message */
+
+.error-msg{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-25%);
+    display: none;
+    
+}
+
+.error-msg p{
+    padding: 12px 24px;
+    background-color: orangered;
+    color: white;
+    border-radius:20px;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 

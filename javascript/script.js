@@ -1,5 +1,28 @@
 console.log(songArr);
 
+// Colors Array
+let colors =[
+  {
+    color1:["#d4a373","#bc6c25"],
+    color2 :["#748cab","#3e5c76"],
+    color3:["#3a5a40","#588157"],
+  },
+  {
+    color1:["#f08080","#f4978e"],
+    color2 :["#748cab","#3e5c76"],
+    color3:["#c77dff","#7b2cbf"],
+  },
+  {
+    color1:["#3a5a40","#588157"],
+    color2 :["#748cab","#3e5c76"],
+    color3:["#c77dff","#7b2cbf"],
+  },
+  {
+    color1:["#c77dff","#7b2cbf"],
+    color2:["#f08080","#f4978e"],
+    color3 :["#748cab","#3e5c76"],
+  }
+]
 
 
 
@@ -87,10 +110,14 @@ let isNextFlag = false;
 
       //Now card1 has the new card
       let newCard = createCard();
+
+      
       // Add the new card animation
       newCard.classList.add("new-card-next-song");
       // Add the new card into dom
       document.querySelector(".music-card").prepend(newCard); 
+      // Add dynamic gradient
+      addLinearGradient()
       // Play the song and check with song either next or prev using flag
       isNextFlag ? nextSong() : prevSong()
     }
@@ -106,6 +133,10 @@ next.addEventListener("click", () => {
 
   // Stop the current track
   currTrack.track.stop();
+
+  // Make play button appear
+  playBtn.style.display = "block";
+  pauseBtn.style.display = "none"
 
   // NextSong should be played only after the animation ends
     // Select the first card in music-card list ie card-1
@@ -132,6 +163,10 @@ prev.addEventListener("click", () => {
     // Stop the current track
   currTrack.track.stop();
 
+  // Make play button appear
+  playBtn.style.display = "block";
+  pauseBtn.style.display = "none" 
+
   card1 = document.querySelector(".music-card").children[0];
   
     // If the card contains "new-card-next-song" class delete it
@@ -148,7 +183,8 @@ prev.addEventListener("click", () => {
 function playMusic(music) {
   //Load Song
   loadSong();
-
+  playBtn.style.display = "none";
+  pauseBtn.style.display = "block"
   // Update the music card with the song details
   trackName[0].textContent = currTrack.name;
   trackName[1].textContent = currTrack.name;
@@ -276,7 +312,7 @@ function updateTimer() {
 // Function to play next song
 function nextSong() {
   
-
+  rotateCard = document.querySelector(".card-1 .card-content img");
   // Remove Animation
   rotateCard.classList.remove("rotate-image");
 
@@ -304,7 +340,8 @@ function nextSong() {
 
 // Function to play prev song
 function prevSong() {
-  
+
+  rotateCard = document.querySelector(".card-1 .card-content img");
   // Stop Animation
   rotateCard.classList.remove("rotate-image");
 
@@ -319,6 +356,14 @@ function prevSong() {
 
   currTrack = songArr[index];
   currSeek = 0;
+
+  // update min and sec with new card min and sec
+  min = document.querySelector(".min")
+  sec = document.querySelector(".sec")
+
+  // Select the next card name and index tag
+  trackName = document.querySelectorAll(".track-name");
+  trackIndex = document.querySelector(".index");
   playMusic(currTrack);
 }
 
@@ -332,7 +377,7 @@ function createCard() {
   div.classList.add("card");
   div.classList.add("card-1");
   div.innerHTML = `<div class="card-content">
-                      <img src="assets/images/track-1.png" alt="sound track" class="">
+                      <img src="assets/images/track-1.webp" alt="sound track" class="">
                       <p class="song-name-heading primary-heading track-name">Zinda Banda</p>
                       <div class="album">
                           <p class="secondary-heading index">#1</p>
@@ -361,8 +406,44 @@ menuCloseBtn.addEventListener("click",()=>{
 
 // ************************************************************************************************
 let input = document.querySelector("#add-songs");
+let globalFile;
 // Add event to file input tag
 input.onchange = event => {
+  let file = event.target.files[0];
+  console.log(file);
+  globalFile =file;
+  let str = globalFile.name;
+  if( str.split('.').pop() == "mp3" || str.split('.').pop() == "wav" )openSongDetailsBox(file.name);
+  else{
+    setTimeout(closeErrorMsg,3000);
+    showErrorMsg();
+  }
+};
+
+let closeModal = document.querySelector(".form-close");
+
+closeModal.addEventListener("click",()=>{
+  closeSongDetailsBox()
+})
+
+// Function to open up the modal box to save the song
+let songName = document.querySelector(".add-song-name");
+
+function openSongDetailsBox(fileName){
+  document.querySelector(".task-form").style.display = "block";
+  document.querySelector(".song-selected").textContent = `Song Selected :-${fileName}`
+}
+
+function closeSongDetailsBox(){
+  document.querySelector(".task-form").style.display = "none";
+  document.querySelector(".add-song-name").value = "";
+}
+
+// When Save button is clicked the details of the songs should be saved in DB
+
+let saveBtn = document.querySelector(".save");
+
+saveBtn.addEventListener("click",()=>{
   const fileReader = new FileReader();
   fileReader.addEventListener("load", e => {
     if (e && e.target && e.target.result && files !== null) {
@@ -381,19 +462,50 @@ input.onchange = event => {
         src: [`data:${contentType};base64,${base64Str}`]
       });
       
-      saveSong({id:songArr[songArr.length-1].id+1,name:`song:-${songArr[songArr.length-1].id+1}`,file:base64Str});
+      saveSong({id:songArr[songArr.length-1].id+1,name:document.querySelector(".add-song-name").value,file:base64Str});
       getSong();
-      songArr.push({id:songArr[songArr.length-1].id+1,name:"name 1",sound})
+      songArr.push({id:songArr[songArr.length-1].id+1,track:sound,name:document.querySelector(".add-song-name").value});
+      // Close the modal box
+      closeSongDetailsBox();
       
     }
   });
-  const files = event.target.files;
-  fileReader.readAsArrayBuffer(files[0]);
-
+  const files = globalFile
   
+  fileReader.readAsArrayBuffer(globalFile);
+})
 
-  // ************************************************************************************************
-  // **********************************************DB OPERATIONS**************************************************
-};
+// Function to show success meassage after adding song
+
+function showSuccessMsg(){
+  document.querySelector(".success-msg").style.display="block";
+}
+
+function closeSuccessMsg(){
+  document.querySelector(".success-msg").style.display="none";
+
+}
+
+// Function show error message while saving
+function showErrorMsg(){
+  document.querySelector(".error-msg").style.display="block";
+}
+
+function closeErrorMsg(){
+  document.querySelector(".error-msg").style.display="none";
+
+}
+
+
+// Function to add linear gradient dynamically while going to next or prev song
+
+function addLinearGradient(){
+  let index = Math.floor(Math.random() * colors.length);
+  console.log(index);
+  document.querySelector(".card-1").style.backgroundImage = `linear-gradient(${colors[index].color1[0]},${colors[index].color1[1]})`;
+  document.querySelector(".card-2").style.backgroundImage = `linear-gradient(${colors[index].color2[0]},${colors[index].color2[1]})`;
+  document.querySelector(".card-3").style.backgroundImage = `linear-gradient(${colors[index].color3[0]},${colors[index].color3[1]})`;
+}
+
 
 
