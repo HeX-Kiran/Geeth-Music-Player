@@ -8,8 +8,8 @@ let colors =[
     color3:["#3a5a40","#588157"],
   },
   {
-    color1:["#f08080","#f4978e"],
-    color2 :["#748cab","#3e5c76"],
+    color1 :["#748cab","#3e5c76"],
+    color2:["#f08080","#f4978e"],
     color3:["#c77dff","#7b2cbf"],
   },
   {
@@ -467,6 +467,7 @@ saveBtn.addEventListener("click",()=>{
       songArr.push({id:songArr[songArr.length-1].id+1,track:sound,name:document.querySelector(".add-song-name").value});
       // Close the modal box
       closeSongDetailsBox();
+      document.querySelector(".main-side-bar").classList.remove("target");
       
     }
   });

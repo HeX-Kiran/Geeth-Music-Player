@@ -88,8 +88,17 @@
         }
         
     }
-    
+
+    .success-msg{
+        left: 45%;
+          
+      }
+      .error-msg{
+          left: 45%;
+        }
 }
+    
+
 
 
 /* ******************************************** */
@@ -138,6 +147,14 @@
     .loop{
         display: none;
     } */
+
+    .success-msg{
+        left: 45%;
+          
+      }
+      .error-msg{
+          left: 45%;
+        }
 }
 
 /* ******************************************** */
@@ -183,6 +200,13 @@
         }
         
     }
+    .success-msg{
+        left: 40%;
+          
+      }
+      .error-msg{
+        left: 40%;
+      }
     
 }
 
@@ -196,6 +220,7 @@
     .song-nav {
         font-size: 30px;
     }
+    
     
 }
 
@@ -279,6 +304,14 @@
     .form{
         min-width: 300px;
     }
+
+    .success-msg{
+      left: 35%;
+        
+    }
+    .error-msg{
+        left: 35%;
+      }
     
 }
 
